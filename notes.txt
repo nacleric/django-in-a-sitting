@@ -1,0 +1,29 @@
+Projects vs. apps
+
+What’s the difference between a project and an app? An app is a Web application that does something – e.g., a Weblog system, a database of public records or a simple poll app. A project is a collection of configuration and apps for a particular website. A project can contain multiple apps. An app can be in multiple projects.
+
+The include() function allows referencing other URLconfs. Whenever Django encounters include(), it chops off whatever part of the URL matched up to that point and sends the remaining string to the included URLconf for further processing.
+
+URLS:
+The idea behind include() is to make it easy to plug-and-play URLs. Since polls are in their own URLconf (polls/urls.py), they can be placed under “/polls/”, or under “/fun_polls/”, or under “/content/polls/”, or any other path root, and the app will still work.
+
+Common Libraries:
+django.contrib.admin – The admin site. You’ll use it shortly.
+django.contrib.auth – An authentication system.
+django.contrib.contenttypes – A framework for content types.
+django.contrib.sessions – A session framework.
+django.contrib.messages – A messaging framework.
+django.contrib.staticfiles – A framework for managing static files.
+
+How apps are connected to projects:
+adding your app to INSTALLED_APPS will connect it to the main project
+run "python manage.py makemigrations <app_name>"  to connect
+
+
+MOdels stuff:
+-Run python manage.py makemigrations to create migrations for those changes
+-Run python manage.py migrate to apply those changes to the database.
+
+admin panel:
+-"python manage.py createsuperuser"
+-must register which app the admin has access to 'admin.site.register(BlogPost)'
