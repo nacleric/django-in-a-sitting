@@ -17,7 +17,7 @@ class User(AbstractUser): custom user model
     def __str__(self):
         return self.username
 '''
-
+#remember to not allow users from liking or disliking multiple times
 class BlogPost(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)

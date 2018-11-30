@@ -3,9 +3,11 @@ from django.http import Http404, HttpResponse #take out HttpResponse later
 from django.template import loader
 
 from django.contrib.auth import login, logout, authenticate
-#from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User 
 from .models import BlogPost, Comment
+
+#NOTES: @login_required #for views that require person to log-in like creating commetns
+#@login_required(redirect_field_name='my_redirect_field')
 
 def index(request): #queries through all posts
     blogposts = BlogPost.objects.all()
@@ -42,18 +44,33 @@ def signup(request):
         form = UserCreationForm()
     return render(request, 'signup.html', {'form': form})
 '''
+'''
 def signup(request):
+    username = request.POST['username']
+    email = request.POST['email']
+    password = request.POST['password']
+    if form.is_valid():
+        user = User.objects.create_user(username,email,password)
     pass
-
+'''
 def login(request):
-    pass
-
+    username = request.POST['username']
+    password = request.POST['password']
+    user = authenticate(request, username=username, password=password)
+    if user is not None:
+        login(request, user) #remember to make a template that lets u know person is logged in
+        # Redirect to a success page.
+        ...
+    else:
+        # Return an 'invalid login' error message.
+        ...    
+'''
 def logout(request):
+    logout(request)
     pass
+'''
 
 
-
-    #user = User.objects.create_user()
 
 
 
