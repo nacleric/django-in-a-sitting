@@ -18,5 +18,7 @@ from django.urls import include, path
 
 urlpatterns = [
 	path('blog/', include('blog.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
+    #provides accounts/... login,logout,passwordchange, paswordreset etc
     path('admin/', admin.site.urls),
 ]

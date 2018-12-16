@@ -100,7 +100,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 #my added stuff
-#LOGIN_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = '/blog'
 #AUTH_USER_MODEL = 'blog.User'
 
 # Internationalization
