@@ -29,46 +29,18 @@ def get_blogpost(request, blogpost_id): #queries singular post
     foo = "Title: " + title_obj + " author: " + author_obj + " body: " + body_obj 
     return HttpResponse(foo)
 
-'''probably doesnt work
-def signup(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=raw_password)
-            login(request, user)
-            return redirect('home')
-    else:
-        form = UserCreationForm()
-    return render(request, 'signup.html', {'form': form})
-'''
-'''
-def signup(request):
-    username = request.POST['username']
-    email = request.POST['email']
-    password = request.POST['password']
-    if form.is_valid():
-        user = User.objects.create_user(username,email,password)
-    pass
-'''
 def login(request):
     username = request.POST['username']
     password = request.POST['password']
-    user = authenticate(request, username=username, password=password)
-    if user is not None:
-        login(request, user) #remember to make a template that lets u know person is logged in
-        # Redirect to a success page.
-        ...
+    user = authenticate(request,username=username,password=password)
+    '''
+    if request.user.is_authenticated:
+        pass
     else:
-        # Return an 'invalid login' error message.
-        ...    
-'''
-def logout(request):
-    logout(request)
-    pass
-'''
+        pass
+    '''
+
+
 
 
 

@@ -21,9 +21,33 @@ run "python manage.py makemigrations <app_name>"  to connect
 
 
 MOdels stuff:
--Run python manage.py makemigrations to create migrations for those changes
+-Run 'python manage.py makemigrations' to create migrations for those changes
+-Run 'python manage.py sqlmigrate' doesn’t actually run the migration on your database - it just prints it to the screen so that you can see what SQL Django thinks is required. 
 -Run python manage.py migrate to apply those changes to the database.
 
 admin panel:
 -"python manage.py createsuperuser"
--must register which app the admin has access to 'admin.site.register(BlogPost)'
+-must register which app the admin has access to 'admin.site.register(BlogPost)' in admin.py
+
+view stuff:
+-cannot pass objects to the view (must put it in dictionary first before passing it to the view)
+-return "HttpResponse(template.render(context, request))" == "return render(request, 'polls/index.html', context)"
+
+Default User Model:
+https://docs.djangoproject.com/en/2.1/ref/contrib/auth/
+User model fields:
+username
+password
+email
+first_name
+last_name
+
+
+
+
+
+TO DO LIST:
+-implement feature to stop people from liking multiple times
+-allow users to change password
+-#NOTES: @login_required #for views that require person to log-in like creating commetns
+#@login_required(redirect_field_name='my_redirect_field')
