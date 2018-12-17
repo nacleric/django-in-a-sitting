@@ -51,3 +51,5 @@ TO DO LIST:
 -allow users to change password
 -#NOTES: @login_required #for views that require person to log-in like creating commetns
 #@login_required(redirect_field_name='my_redirect_field')
+
+FIX TEMPLATE AND STATIC. WE MOVED STUFF OUT OF APPS TO THE PROJECT DIRECTORY
